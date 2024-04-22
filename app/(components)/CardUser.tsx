@@ -16,7 +16,7 @@ const CardUser = ({name, email, id, username}: Users) => {
                 {
                     albums.map((album: any) => {
                         if( album.userId === id) {
-                            return <ActiveLink text={ album.title } path={`/album/${album.id}`} key={album.id}/>
+                            return <ActiveLink text={ album.title } path={`/album/${album.id}`} key={album.id} album={ album }/>
                         }
                     })
                 }
