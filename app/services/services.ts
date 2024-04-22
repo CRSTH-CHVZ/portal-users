@@ -13,3 +13,15 @@ export const getAllUsers = async () => {
         console.error(error);
     }
 }
+
+export const getAlbums = async () => {
+    const url: string = URL_BASE + "/albums";
+    try {
+        return axios.get(url)
+            .then((res:  any) => {
+                return res.data;
+            })
+    } catch (error){
+        console.error(error);
+    }
+}
