@@ -30,6 +30,13 @@ export type Albums = {
     setAlbums?: (albums: Albums[]) => void;
 }
 
+export type SelectecAlbum = {
+    userId: number,
+    id: number,
+    title: string,
+    setSelectecAlbum?: (albums: SelectecAlbum[]) => void;
+}
+
 export type LinkProps = {
     text: string,
     path: string,

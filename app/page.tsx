@@ -2,16 +2,18 @@
 import {useEffect,} from "react";
 import {getAlbums, getAllUsers} from "@/app/services/services";
 import {useAlbumsStore, useUsersStore} from "@/app/store/store";
-import CardUser from "@/app/components/CardUser";
+import CardUser from "@/app/(components)/CardUser";
+
 
 export default function Home() {
     const users = useUsersStore((state: any) => state.users);
+    const albums = useAlbumsStore((state: any) => state.albums);
     useEffect(() => {
-        getAllUsers()
+        users.length === 0 && getAllUsers()
             .then((res: any) => {
                 useUsersStore.setState({users: res});
             })
-        getAlbums()
+        albums.length === 0 && getAlbums()
             .then((res: any) => {
                 useAlbumsStore.setState({albums: res});
             })
