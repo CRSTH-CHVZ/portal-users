@@ -7,7 +7,6 @@ import { useSelectedAlbumStore} from "@/app/store/store";
 
 const ActiveLink = ({text, path, album} : LinkProps) => {
     const pathName = usePathname();
-    const selectedAlbum = useSelectedAlbumStore((state: any) => state.selectedAlbum);
     const router = useRouter();
     const handleClick = () => {
         useSelectedAlbumStore.setState({selectedAlbum: album});

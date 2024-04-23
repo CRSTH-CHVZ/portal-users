@@ -4,9 +4,12 @@ import {getAlbums, getAllComments, getAllUsers} from "@/app/services/services";
 import {useAlbumsStore, useCommentsStorage, useUsersStore} from "@/app/store/store";
 import CardUser from "@/app/(components)/CardUser";
 import {exportExcel} from "@/app/(components)/exportExcel";
+import {useRouter} from "next/navigation";
+import PostsByUsers from "@/app/(components)/posts-by-users/page";
 
 
 export default function Home() {
+    const router = useRouter();
     const users = useUsersStore((state: any) => state.users);
     const albums = useAlbumsStore((state: any) => state.albums);
     const comments = useCommentsStorage((state: any) => state.comments);
@@ -30,6 +33,8 @@ export default function Home() {
           {/*   todo add state manager*/}
           <div>Portal</div>
           <div onClick={ async  () => { exportExcel(users) }}>Exportar Excel</div>
+          <button onClick={() => { router.push('/posts-by-users') }}>Posts by users</button>
+          < PostsByUsers />
           {
               users?.length > 0 && (
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
