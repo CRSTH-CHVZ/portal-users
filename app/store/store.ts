@@ -16,7 +16,7 @@ export const UseSelectedAlbumStore = create((set) => ({
     setSelectedAlbum: (selectedAlbum: SelectedAlbum) => set({ selectedAlbum }),
 }));
 
-export const UseCommentsStorage = create((set) => ({
+export const useCommentsStorage = create((set) => ({
     comments: [] as comments[],
     setComments: (comments: comments[]) => set({ comments }),
 }));
