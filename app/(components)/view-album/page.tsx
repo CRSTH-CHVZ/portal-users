@@ -1,10 +1,10 @@
 "use client";
 import React, {useEffect, useState} from 'react'
-import {useSelectedAlbumStore} from "@/app/store/store";
+import {UseSelectedAlbumStore} from "@/app/store/store";
 import {getAlbumImages} from "@/app/services/services";
 
 const page = () => {
-    const selectedAlbum = useSelectedAlbumStore((state: any) => state.selectedAlbum);
+    const selectedAlbum = UseSelectedAlbumStore((state: any) => state.selectedAlbum);
     const { title, id, userId } = selectedAlbum;
     const [albumImages, setAlbumImages] = useState([]);
     useEffect(() => {

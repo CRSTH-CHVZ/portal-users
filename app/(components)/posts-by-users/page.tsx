@@ -1,11 +1,11 @@
 "use client"
 import React, {useEffect} from 'react';
 import Chart from "chart.js";
-import {useCommentsStorage, useUsersStore} from "@/app/store/store";
+import {UseCommentsStorage, UseUsersStore} from "@/app/store/store";
 
 const page = () => {
-    const users = useUsersStore((state: any) => state.users);
-    const comments = useCommentsStorage((state: any) => state.comments);
+    const users = UseUsersStore((state: any) => state.users);
+    const comments = UseCommentsStorage((state: any) => state.comments);
     const usersNames = users.map((user: any) => user.name)
 const postsByUser = comments.reduce((acc: any, comment: any) => {
     if (acc[comment.userId]) {
@@ -99,7 +99,7 @@ const postsByUser = comments.reduce((acc: any, comment: any) => {
     }, [users, comments]);
   return (
       <>
-          <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded mt-20 w-8/12 ml-[15%] min-h-96">
+          <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded mt-20 w-8/12 min-h-96">
               <div className="rounded-t mb-0 px-4 py-3 bg-transparent">
                   <div className="flex flex-wrap items-center">
                       <div className="relative w-full max-w-full flex-grow flex-1">

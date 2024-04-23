@@ -3,13 +3,13 @@ import Link from "next/link";
 import {LinkProps} from "@/app/interfaces/interface";
 import style from "./ActiveLink.module.css";
 import {usePathname, useRouter} from "next/navigation";
-import { useSelectedAlbumStore} from "@/app/store/store";
+import { UseSelectedAlbumStore} from "@/app/store/store";
 
 const ActiveLink = ({text, path, album} : LinkProps) => {
     const pathName = usePathname();
     const router = useRouter();
     const handleClick = () => {
-        useSelectedAlbumStore.setState({selectedAlbum: album});
+        UseSelectedAlbumStore.setState({selectedAlbum: album});
         router.push('/view-album')
     }
     return (

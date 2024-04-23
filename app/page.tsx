@@ -1,28 +1,28 @@
 "use client";
 import {useEffect,} from "react";
 import {getAlbums, getAllComments, getAllUsers} from "@/app/services/services";
-import {useAlbumsStore, useCommentsStorage, useUsersStore} from "@/app/store/store";
+import {UseAlbumsStore, UseCommentsStorage, UseUsersStore} from "@/app/store/store";
 import CardUser from "@/app/(components)/CardUser";
 import {exportExcel} from "@/app/(components)/exportExcel";
 import {useRouter} from "next/navigation";
 
 export default function Home() {
     const router = useRouter();
-    const users = useUsersStore((state: any) => state.users);
-    const albums = useAlbumsStore((state: any) => state.albums);
-    const comments = useCommentsStorage((state: any) => state.comments);
+    const users = UseUsersStore((state: any) => state.users);
+    const albums = UseAlbumsStore((state: any) => state.albums);
+    const comments = UseCommentsStorage((state: any) => state.comments);
     useEffect(() => {
         users.length === 0 && getAllUsers()
             .then((res: any) => {
-                useUsersStore.setState({users: res});
+                UseUsersStore.setState({users: res});
             })
         albums.length === 0 && getAlbums()
             .then((res: any) => {
-                useAlbumsStore.setState({albums: res});
+                UseAlbumsStore.setState({albums: res});
             })
         comments.length === 0 && getAllComments()
             .then((res: any) => {
-                useCommentsStorage.setState({comments: res});
+                UseCommentsStorage.setState({comments: res});
             })
     }, []);
   return (

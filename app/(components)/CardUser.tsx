@@ -1,10 +1,10 @@
 import React from 'react'
 import {Users} from "@/app/interfaces/interface";
-import {useAlbumsStore} from "@/app/store/store";
+import {UseAlbumsStore} from "@/app/store/store";
 import ActiveLink from "@/app/(components)/active-link/ActiveLink";
 
 const CardUser = ({name, email, id, company, phone}: Users) => {
-    const albums = useAlbumsStore((state: any) => state.albums);
+    const albums = UseAlbumsStore((state: any) => state.albums);
     return (
         <div className="grid grid-cols-5 md:grid-cols-1 gap-1 ">
             <div className="bg-white rounded-lg p-4">
