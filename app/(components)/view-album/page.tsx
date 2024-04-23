@@ -14,16 +14,18 @@ const page = () => {
             })
     }, []);
   return (
-    <div>
+    <div className="flex min-h-screen flex-col items-center justify-between p-24">
       Album { title }
-        {
-            albumImages.map((image: any) => (
-                <div key={image.id}>
-                    <img src={image.url} alt={image.title}/>
-                    <div>{image.title}</div>
-                </div>
-            ))
-        }
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {
+                albumImages.map((image: any) => (
+                    <div key={image.id}>
+                        <img src={image.url} alt={image.title}/>
+                        <div>{image.title}</div>
+                    </div>
+                ))
+            }
+        </div>
     </div>
   )
 }

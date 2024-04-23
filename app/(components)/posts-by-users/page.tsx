@@ -7,9 +7,6 @@ const page = () => {
     const users = useUsersStore((state: any) => state.users);
     const comments = useCommentsStorage((state: any) => state.comments);
     const usersNames = users.map((user: any) => user.name)
-    console.log(usersNames)
-    console.log(comments)
-    // iterate  comments and count by userId then save only the final number per user  it in an array
 const postsByUser = comments.reduce((acc: any, comment: any) => {
     if (acc[comment.userId]) {
         acc[comment.userId] += 1;
@@ -32,7 +29,7 @@ const postsByUser = comments.reduce((acc: any, comment: any) => {
                         backgroundColor: "#3182ce",
                         borderColor: "#3182ce",
                         data: finalNumberOfPostByUser,
-                        barThickness: 12,
+                        barThickness: 30,
                     },
                 ],
             },
@@ -102,7 +99,7 @@ const postsByUser = comments.reduce((acc: any, comment: any) => {
     }, [users, comments]);
   return (
       <>
-          <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+          <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded mt-20 w-8/12 ml-[15%] min-h-96">
               <div className="rounded-t mb-0 px-4 py-3 bg-transparent">
                   <div className="flex flex-wrap items-center">
                       <div className="relative w-full max-w-full flex-grow flex-1">
@@ -117,7 +114,7 @@ const postsByUser = comments.reduce((acc: any, comment: any) => {
               </div>
               <div className="p-4 flex-auto">
                   {/* Chart */}
-                  <div className="relative h-350-px">
+                  <div className="relative h-500-px">
                       <canvas id="bar-chart"></canvas>
                   </div>
               </div>

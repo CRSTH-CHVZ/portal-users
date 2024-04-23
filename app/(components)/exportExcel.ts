@@ -1,8 +1,6 @@
 import writeXlsxFile from 'write-excel-file'
 
 export const exportExcel = async (objects: any) => {
-    console.log(">>>info", objects)
-
     const schema = [
         {
             column: "ID",

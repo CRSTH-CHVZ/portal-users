@@ -13,12 +13,16 @@ const ActiveLink = ({text, path, album} : LinkProps) => {
         router.push('/view-album')
     }
     return (
-        <button
-            className={ `${style.link} ${ (pathName === path) && style['active-link'] }` }
-            onClick={ () => { handleClick() } }
-        >
-            { text }
-        </button>
+        <div className="ml-4 flex justify-start">
+            <button
+                className={`${style.link} ${(pathName === path) && style['active-link']} text-start`}
+                onClick={() => {
+                    handleClick()
+                }}
+            >
+                {text}
+            </button>
+        </div>
     )
 }
 
