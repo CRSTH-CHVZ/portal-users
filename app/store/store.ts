@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import {Albums, SelectedAlbum, Users} from "@/app/interfaces/interface";
+import {Albums, comments, SelectedAlbum, Users} from "@/app/interfaces/interface";
 
 export const useUsersStore = create((set) => ({
     users: [] as Users[],
@@ -14,4 +14,9 @@ export const useAlbumsStore = create((set) => ({
 export const useSelectedAlbumStore = create((set) => ({
     selectedAlbum: {} as SelectedAlbum,
     setSelectedAlbum: (selectedAlbum: SelectedAlbum) => set({ selectedAlbum }),
+}));
+
+export const useCommentsStorage = create((set) => ({
+    comments: [] as comments[],
+    setComments: (comments: comments[]) => set({ comments }),
 }));

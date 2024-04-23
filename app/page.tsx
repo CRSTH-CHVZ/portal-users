@@ -1,7 +1,7 @@
 "use client";
 import {useEffect,} from "react";
-import {getAlbums, getAllUsers} from "@/app/services/services";
-import {useAlbumsStore, useUsersStore} from "@/app/store/store";
+import {getAlbums, getAllComments, getAllUsers} from "@/app/services/services";
+import {useAlbumsStore, useCommentsStorage, useUsersStore} from "@/app/store/store";
 import CardUser from "@/app/(components)/CardUser";
 import {exportExcel} from "@/app/(components)/exportExcel";
 
@@ -9,6 +9,7 @@ import {exportExcel} from "@/app/(components)/exportExcel";
 export default function Home() {
     const users = useUsersStore((state: any) => state.users);
     const albums = useAlbumsStore((state: any) => state.albums);
+    const comments = useCommentsStorage((state: any) => state.comments);
     useEffect(() => {
         users.length === 0 && getAllUsers()
             .then((res: any) => {
@@ -17,6 +18,10 @@ export default function Home() {
         albums.length === 0 && getAlbums()
             .then((res: any) => {
                 useAlbumsStore.setState({albums: res});
+            })
+        comments.length === 0 && getAllComments()
+            .then((res: any) => {
+                useCommentsStorage.setState({comments: res});
             })
     }, []);
   return (

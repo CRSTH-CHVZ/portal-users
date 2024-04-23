@@ -42,3 +42,11 @@ export type LinkProps = {
     path: string,
     album: Albums,
 }
+
+export type comments = {
+    userId: number,
+    id: number,
+    title: string,
+    body: string,
+    setComments?: (comments: comments[]) => void;
+}

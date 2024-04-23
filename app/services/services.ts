@@ -37,3 +37,14 @@ export const getAlbumImages = async (album: number | string) => {
         console.error(error);
     }
 }
+export const getAllComments = async () => {
+    const url: string = URL_BASE + '/posts';
+    try {
+        return axios.get(url)
+            .then((res:  any) => {
+                return res.data;
+            })
+    } catch (error){
+        console.error(error);
+    }
+}
