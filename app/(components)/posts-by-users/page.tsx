@@ -3,7 +3,7 @@ import React, {useEffect} from 'react';
 import Chart from "chart.js";
 import {UseCommentsStorage, UseUsersStore} from "@/app/store/store";
 
-const page = () => {
+const Page = () => {
     const users = UseUsersStore((state: any) => state.users);
     const comments = UseCommentsStorage((state: any) => state.comments);
     const usersNames = users.map((user: any) => user.name)
@@ -123,4 +123,4 @@ const postsByUser = comments.reduce((acc: any, comment: any) => {
   )
 }
 
-export default page
+export default Page

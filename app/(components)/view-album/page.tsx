@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react'
 import {UseSelectedAlbumStore} from "@/app/store/store";
 import {getAlbumImages} from "@/app/services/services";
 
-const page = () => {
+const Page = () => {
     const selectedAlbum = UseSelectedAlbumStore((state: any) => state.selectedAlbum);
     const { title, id, userId } = selectedAlbum;
     const [albumImages, setAlbumImages] = useState([]);
@@ -30,4 +30,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
