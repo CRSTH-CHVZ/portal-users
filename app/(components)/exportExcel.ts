@@ -5,42 +5,42 @@ export const exportExcel = async (objects: any) => {
         {
             column: "ID",
             type: Number,
-            value: (student: number|string) => student.id
+            value: (student: any) => student.id
         },
         {
             column: "NOMBRE",
             type:  String,
-            value: (student: string) => student.name
+            value: (student: any) => student.name
         },
         {
             column: "EMAIL",
             type:  String,
-            value: (student: string) => student.email
+            value: (student: any) => student.email
         },
         {
             column: "DIRECCION",
             type:  String,
-            value: (student:string) => student.address.street
+            value: (student:any) => student.address.street
         },
         {
             column: "CIUDAD",
             type:  String,
-            value: (student:string) => student.address.city
+            value: (student:any) => student.address.city
         },
         {
             column: "TELEFONO",
             type:  String,
-            value: (student: string) => student.phone
+            value: (student: any) => student.phone
         },
         {
             column: "WEBSITE",
             type:  String,
-            value: (student: string) => student.website
+            value: (student: any) => student.website
         },
         {
             column: "EMPRESA",
             type:  String,
-            value: (student:string) => student.company.name
+            value: (student:any) => student.company.name
         },
     ]
 
